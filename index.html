@@ -9,29 +9,28 @@
     function redirect() {
       var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
+      // iOS
       if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-        window.location.href = "https://apps.apple.com/app/spotify-music-and-podcasts/id324684580";
+        window.location.href =
+          "https://apps.apple.com/app/spotify-music-and-podcasts/id324684580";
         return;
       }
 
+      // Android
       if (/android/i.test(userAgent)) {
-        window.location.href = "https://play.google.com/store/apps/details?id=com.spotify.music";
+        window.location.href =
+          "https://play.google.com/store/apps/details?id=com.spotify.music";
         return;
       }
 
-      document.getElementById("manual").style.display = "block";
+      // Desktop (Windows, Mac, Linux)
+      window.location.href = "https://www.ertkka.com";
     }
   </script>
 </head>
 
 <body onload="redirect()" style="font-family: Arial; text-align: center; padding: 40px;">
-  <h2>Download Ertkka</h2>
-  <p>Redirecting…</p>
-
-  <div id="manual" style="display:none;">
-    <p>Select your platform:</p>
-    <a href="https://play.google.com/store/apps/details?id=YOUR_PACKAGE_NAME">Android</a><br><br>
-    <a href="https://apps.apple.com/app/idYOUR_APP_ID">iPhone</a>
-  </div>
+  <h2>Redirecting…</h2>
+  <p>Please wait</p>
 </body>
 </html>
